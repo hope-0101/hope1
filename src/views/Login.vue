@@ -7,10 +7,10 @@
       </div>
       <!-- 登录区 -->
       <el-form class="login-form" ref="loginFormRef" :model="loginForm" :rules="loginFormRules">
-        <el-form-item label="用户名" prop="username">
+        <el-form-item prop="username">
           <el-input v-model="loginForm.username" prefix-icon="iconfont icon-user">></el-input>
         </el-form-item>
-        <el-form-item label="密 码" prop="password">
+        <el-form-item prop="password">
           <el-input
             type="password"
             v-model="loginForm.password"
@@ -62,7 +62,7 @@ export default {
         if (res.meta.status !== 200) return this.$message.error('登录失败！')
         this.$message.success('登录成功')
         window.sessionStorage.setItem('token', res.data.token)
-        console.log(res)
+        // console.log(res)
         this.$router.push('/admin')
       })
     }
